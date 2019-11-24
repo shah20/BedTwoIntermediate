@@ -13,6 +13,6 @@ public interface UserRepository extends JpaRepository<User, String>{
     User findByPassword(String password);
     User findByEmailAndPassword(String email, String password);
 
-    @Query(value="select * from user order by firstname", nativeQuery=true)
+    @Query(value="select * from user order by LOWER(firstname)", nativeQuery=true)
     List<User> findAllSorted();
 }
